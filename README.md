@@ -60,7 +60,7 @@ Table 1:
 | `/lander-1` | 47,574 | 25,330 | 53.24% | 184.28 | 184.28 |
 | `/lander-4` | 9,385 | 4,851 | 51.69% | 187.86 | 187.86 |
 
-Based on Table 1, The bounce rates for Fuzzy Store's landing pages range from 41.68% to 53.24%. Compared to the e-commerce industry benchmark of 36% - 45% [source]<https://www.shopify.com/hk-en/blog/bounce-rate>, our current figures are significantly higher. The high bounce rates suggest friction at the initial touchpoint. Potential causes include slow page load times, non-mobile-friendly layouts, or a lack of compelling Call-to-Action (CTA) elements.
+Based on Table 1, The bounce rates for Fuzzy Store's landing pages range from 41.68% to 53.24%. Compared to the e-commerce industry benchmark of 36% - 45% ([source](https://www.shopify.com/hk-en/blog/bounce-rate)), our current figures are significantly higher. The high bounce rates suggest friction at the initial touchpoint. Potential causes include slow page load times, non-mobile-friendly layouts, or a lack of compelling Call-to-Action (CTA) elements.
 
 This idea also supported by Figure 3. Thời gian spent trung bình của các user đến bước tiếp theo
 
