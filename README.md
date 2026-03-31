@@ -8,15 +8,12 @@ As the in-house Data Analyst, the primary mandate is to support marketing, produ
 Key business metrics tracked:
 
 - Conversion Rate (CVR) — sessions to completed purchase
-- Revenue by product and landing page
 - Bounce rate by landing page variant
 - Cart abandonment rate
-- Cross-sell attach rate
 
 Insights and recommendations are provided on the following stakeholder questions:
 
-- **Question 2:** Why does high traffic volume not translate into proportional order volume — where are customers dropping off?
-- **Question 4:** Which marketing channels deliver the highest-quality traffic, and where should we reallocate spend?
+`Why does high traffic volume not translate into proportional order volume — where are customers dropping off?`
 
 The Python codes used to inspect and clean the data for this analysis can be found here [link].
 
@@ -38,9 +35,9 @@ The companies main database structure as seen below consists of four tables: tab
 
 `session_pageviews`: Logs specific pages viewed by users during each individual session.
 
-<img width="1288" height="510" alt="image" src="https://github.com/user-attachments/assets/e1336a4d-0858-4b64-8c05-51faae49be52" />
-
-Figure 1: Entities Relationship Diagram
+|<img width="1288" height="510" alt="image" src="https://github.com/user-attachments/assets/e1336a4d-0858-4b64-8c05-51faae49be52" />|
+|:-----------:|
+|**Figure 1:** Entities Relationship Diagram|
 
 
 # Executive Summary
@@ -50,22 +47,58 @@ Fuzzy Factory recorded over 400,000 website sessions across the analysis period,
 # Insights Deep Dive
 ## Question 1: Why does high traffic volume not translate into proportional order volume — where are customers dropping off?
 
-<img width="1011" height="333" alt="Ảnh chụp màn hình 2026-03-29 230840" src="https://github.com/user-attachments/assets/15abc764-181f-422b-a3b2-fff8486d9917" />
+Table 1: Total Session through funnel
 
-**Figure 2: Conversion Rate and Drop-off by Stages**
+|year|total_sessions|step_1_home|step_2_products|step_3_product_detail|step_4_cart|step_5_shipping|step_6_billing|step_7_ordered|
+|-------|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|2012|	62470 |	62470  |29468	 |21252 |9235 |	6306 |	5166 |	2586 |
+|2013|	112781|	112781 |62491	 |47878	|21521|	14647|	11877|	7447 |
+|2014|	233423|	233422 |130660 |108182|48794|	33058|	26580|	16860|
+|2015|	64198 |	64198	 | 38612 |32902	|15403|	10473|	8435 |	5420 |
 
-Between March 2012 and March 2015, the Fuzzy Factory e-commerce platform recorded a total of 472,871 sessions. Out of these, only 32,313 sessions successfully converted into orders, resulting in an overall Conversion Rate (CVR) of 6.8%. Analysis of the conversion funnel reveals three critical bottlenecks:
+|<img width="1011" height="333" alt="Ảnh chụp màn hình 2026-03-29 230840" src="https://github.com/user-attachments/assets/15abc764-181f-422b-a3b2-fff8486d9917" />|
+|:---------:|
+|**Figure 2:** Conversion Rate and Drop-off by Stages|
 
-Point 1: Home -> Product: More than 200,000 sessions exit the site immediately after landing, without viewing any specific product. This suggests a significant gap in initial engagement or landing page relevance.
 
-Point 2: Product Detail View -> Add-to-cart: This stage represents the largest point of friction in the funnel. Approximately 183,306 sessions—nearly 72% of users who viewed a product—dropped off before adding an item to their cart. This indicates potential issues with product pricing, lack of trust, or poor UI/UX on the product detail pages.
 
-Point 3: Add-to-cart -> Success Purchase: Even after expressing clear intent by adding items to the cart, the conversion to a successful purchase is only about 46%. We are losing over 37,000 potential orders during the checkout phase, which often points to friction in the shipping/billing steps or technical errors during payment.
+Based on Table 1 and Figure 2, between March 2012 and March 2015, the Fuzzy Factory e-commerce platform recorded a total of 472,871 sessions. Out of these, only 32,313 sessions successfully converted into orders, resulting in an overall Conversion Rate (CVR) of 6.8%. Analysis of the conversion funnel reveals three critical bottlenecks:
+- **Point 1: Home -> Product:** More than 200,000 sessions exit the site immediately after landing, without viewing any specific product.
+- **Point 2: Product Detail View -> Add-to-cart:** Approximately 115,000 sessions—nearly 54,8% of users who viewed a product—dropped off before adding an item to their cart.
+- **Point 3: Add-to-cart -> Success Purchase:** Out of 63,640   sessions that reached the "Add-to-cart" stage, 38,547 sessions failed to complete the transaction, resulting in only 32,313 successful orders.
 
-**Bottleneck 2 — Detail View → Add-to-Cart (~55% drop-off):**
 
-Initially flagged as a UI/UX concern, average time-on-page data (~186 seconds) indicates users do engage with the home page before leaving. The high drop-off in early 2012 (>60% bounce rate) triggered the A/B testing program documented below. This bottleneck has since been largely resolved through iterative landing page experimentation — no further optimization effort is recommended here.
 
+Để có thể hiểu rõ hơn về các bottleneck, tôi sẽ drill-down vào từng stage để phân tích:
+
+**Bottleneck 1:** Home → Product
+To better understand these bottlenecks and explain why high traffic volume does not translate into proportional orders, a detailed drill-down into the first stage is required:
+
+Bottleneck 1: Home → Product
+
+1. By landing page
+
+Main insight 1: Superior Performance of /lander-5 for New Desktop Users. Among all landing pages, /lander-5 achieved the highest efficiency with a 63.13% CTR for new desktop users. This indicates that once the platform moved away from experimental versions, this specific layout successfully captured and retained user interest better than any other iteration.
+
+Main insight 2: The Significant Failure of /lander-4. When comparing similar segments (New/Desktop), /lander-4 underperformed severely with a CTR of only 48.31%, compared to the baseline /home (57.96%) and the high-performing /lander-5 (63.13%). This 10-15% performance gap confirms that the /lander-4 design failed to engage its target audience during its brief run.
+
+Main insight 3: Post-Pilot Recovery of /lander-3. After a period of high-volume but low-quality traffic during the Pilot phase, /lander-3 saw its CTR recover to 41.65% in March 2014. This suggests that the landing page itself was functional, but its metrics were previously suppressed by the mismatch between the campaign audience and the page content.
+
+2. By campaign
+
+Main insight 1: Quality Dilution via the /lander-3 Pilot Campaign. Between January and February 2014, the Pilot campaign attracted a surge of new customers to /lander-3. However, the quality of this traffic was significantly lower, causing CTR to plummet from 53.46% (Dec 2013) to a low of 35.04% (Feb 2014). The high "leakage" at Point 1 during this period is directly attributed to this influx of low-intent sessions.
+
+Main insight 2: Inefficiency of the Desktop-Targeted Campaign on /lander-2. The campaign launched for /lander-2 in late 2014 proved highly ineffective. It resulted in a simultaneous loss of traffic volume and a crash in traffic quality, with CTR dropping from 53.13% in October to a critical low of 29.75% in December 2014 (a -31.9% MoM decline).
+
+Main insight 3: Stability through Brand and Direct Traffic at /home. Unlike the experimental landers, traffic directed to /home (primarily Brand and Direct) remained high-quality and consistent. This segment acted as a stabilizer for the funnel, even while experimental non-brand campaigns were causing significant drop-offs elsewhere.
+
+3. By device type
+
+Main insight 1: Mobile as the Primary Leakage Point for New Traffic. Mobile sessions consistently show the highest drop-off rates. For new users, /home mobile CTR was only 41.92% compared to 57.96% on desktop. This inherent device friction is a major reason why high total traffic (driven by mobile expansion) does not yield proportional orders.
+
+Main insight 2: High Intent of Repeat Customers on Desktop. The strongest performance in the entire funnel was seen among repeat customers on desktop at /home, with a 70.12% CTR. This confirms that the "Home -> Product" transition is nearly seamless for loyal users, whereas "cold" traffic from new campaigns is where the majority of the 200,000+ exits occur.
+
+Main insight 3: Optimization Gap for Mobile-Targeted Landers. While /lander-5 maximized desktop performance, the lack of an equivalent mobile-optimized version for these new campaigns forced mobile traffic into lower-performing funnels (like the pilot on /lander-3), further exacerbating the drop-off at Point 1.
 **Bottleneck 2 — Detail View → Add-to-Cart (~55% drop-off):**
 
 This is the most significant active bottleneck. Average time on the product detail page is approximately 2 minutes — indicating user engagement rather than UI friction. The high exit rate therefore points to product-side barriers: insufficient product description quality, non-compelling imagery, or a pricing mismatch relative to willingness-to-pay. This is the highest-priority optimization target.
@@ -79,21 +112,6 @@ This is the most significant active bottleneck. Average time on the product deta
 Elevated, but within the accepted e-commerce benchmark range of ~60–80% ([source](https://baymard.com/lists/cart-abandonment-rate)). Average time at this stage (~3.25 minutes) suggests checkout form complexity as a contributing factor. Given benchmark alignment, this is a lower priority relative to Bottleneck 2.
 
 
-
-Figure 3: Avg Time check-out
-
-## Category 3: Sản phẩm mới ra mắt có hiệu quả hay không
-Main insight 1. More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-Main insight 2. More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-Main insight 3. More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-Main insight 4. More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-[Visualization specific to category 3]
-Category 4:
-Main insight 1. More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-Main insight 2. More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-Main insight 3. More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-Main insight 4. More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-[Visualization specific to category 4]
 # Recommendations:
 Based on the insights and findings above, we would recommend the [stakeholder team] to consider the following:
 Specific observation that is related to a recommended action. Recommendation or general guidance based on this observation.
