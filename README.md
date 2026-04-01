@@ -8,6 +8,7 @@ As the in-house Data Analyst, the primary mandate is to support marketing, produ
 Key business metrics tracked:
 
 - Conversion Rate (CVR) — sessions to completed purchase
+- Click-through rate (CTR)
 - Bounce rate by landing page variant
 - Cart abandonment rate
 
@@ -45,7 +46,8 @@ Fuzzy Factory recorded over 400,000 website sessions across the analysis period,
 
 [Visualization, including a graph of overall trends or snapshot of a dashboard]
 # Insights Deep Dive
-## Question 1: Why does high traffic volume not translate into proportional order volume — where are customers dropping off?
+
+## ***Why does high traffic volume not translate into proportional order volume — where are customers dropping off?***
 
 Table 1: Total Session through funnel
 
@@ -67,47 +69,77 @@ Based on Table 1 and Figure 2, between March 2012 and March 2015, the Fuzzy Fact
 - **Point 2: Product Detail View -> Add-to-cart:** Approximately 115,000 sessions—nearly 54,8% of users who viewed a product—dropped off before adding an item to their cart.
 - **Point 3: Add-to-cart -> Success Purchase:** Out of 63,640   sessions that reached the "Add-to-cart" stage, 38,547 sessions failed to complete the transaction, resulting in only 32,313 successful orders.
 
-
-
-Để có thể hiểu rõ hơn về các bottleneck, tôi sẽ drill-down vào từng stage để phân tích:
-
-**Bottleneck 1:** Home → Product
 To better understand these bottlenecks and explain why high traffic volume does not translate into proportional orders, a detailed drill-down into the first stage is required:
 
-Bottleneck 1: Home → Product
+### **Bottleneck 1:** Home → Product
 
-1. By landing page
+Analysis across three dimensions — landing page performance, campaign attribution, and device type — reveals that the primary driver of Home-stage drop-off can from both page design and traffic quality.
 
-Main insight 1: Superior Performance of /lander-5 for New Desktop Users. Among all landing pages, /lander-5 achieved the highest efficiency with a 63.13% CTR for new desktop users. This indicates that once the platform moved away from experimental versions, this specific layout successfully captured and retained user interest better than any other iteration.
+***Page Design***
 
-Main insight 2: The Significant Failure of /lander-4. When comparing similar segments (New/Desktop), /lander-4 underperformed severely with a CTR of only 48.31%, compared to the baseline /home (57.96%) and the high-performing /lander-5 (63.13%). This 10-15% performance gap confirms that the /lander-4 design failed to engage its target audience during its brief run.
+**Table 2:** Average time spent in each landing page
+|landing page| avg time spent (sec)|
+|----------|:----------:|
+|`/home`|	185.6|
+|`/lander-1`|	184.3|
+|`/lander-2`|	185.6|
+|`/lander-3`|	184.6|
+|`/lander-4`|	187.9|
+|`/lander-5`|	184.2|
 
-Main insight 3: Post-Pilot Recovery of /lander-3. After a period of high-volume but low-quality traffic during the Pilot phase, /lander-3 saw its CTR recover to 41.65% in March 2014. This suggests that the landing page itself was functional, but its metrics were previously suppressed by the mismatch between the campaign audience and the page content.
+Non-bounce sessions averaged 185 seconds (~3 minutes), significantly exceeding the e-commerce benchmark of 60–120 seconds ([source](https://www.growthsuite.net/glossary/average-time-on-page)). This high engagement, paired with a 44.8% drop-off rate (well below the industry average of 70–90%), indicates strong initial user intent and content relevance ([source](https://www.leadraftmarketing.com/post/best-practices-to-decrease-bounce-rate-for-landing-pages)).
 
-2. By campaign
+These findings effectively reject the hypothesis of a landing page design flaw, shifting the strategic focus to downstream friction points.
 
-Main insight 1: Quality Dilution via the /lander-3 Pilot Campaign. Between January and February 2014, the Pilot campaign attracted a surge of new customers to /lander-3. However, the quality of this traffic was significantly lower, causing CTR to plummet from 53.46% (Dec 2013) to a low of 35.04% (Feb 2014). The high "leakage" at Point 1 during this period is directly attributed to this influx of low-intent sessions.
+***Traffic Quality***
 
-Main insight 2: Inefficiency of the Desktop-Targeted Campaign on /lander-2. The campaign launched for /lander-2 in late 2014 proved highly ineffective. It resulted in a simultaneous loss of traffic volume and a crash in traffic quality, with CTR dropping from 53.13% in October to a critical low of 29.75% in December 2014 (a -31.9% MoM decline).
+**1. By landing page**
 
-Main insight 3: Stability through Brand and Direct Traffic at /home. Unlike the experimental landers, traffic directed to /home (primarily Brand and Direct) remained high-quality and consistent. This segment acted as a stabilizer for the funnel, even while experimental non-brand campaigns were causing significant drop-offs elsewhere.
+Insight 1 — Inverse relationship between traffic volume and quality on `/lander-3`
 
-3. By device type
+Between December 2013 and February 2014, the Pilot campaign injected a significant volume of new traffic into `/lander-3`. Prior to the campaign (December 2013), the page handled 3,829 sessions with 2,047 users (53.5% CTR) proceeding to the product catalog. Following Pilot campaign activation, total sessions on `/lander-3` increased to 4,232 in January 2014 and peaked at 5,129 in February 2014 — yet the number of users advancing to the next step declined to 1,626 and 1,797 respectively, as CTR collapsed to 38.4% and 35.0%. The addition of approximately 1,300–2,000 incremental sessions per month from the Pilot campaign effectively destroyed more value than it created. Following campaign termination, `/lander-3` recovered to 2,077 users advancing (CTR 53.2%) in April 2014, confirming that the deterioration was entirely attributable to Pilot traffic characteristics rather than any change in page quality.
 
-Main insight 1: Mobile as the Primary Leakage Point for New Traffic. Mobile sessions consistently show the highest drop-off rates. For new users, /home mobile CTR was only 41.92% compared to 57.96% on desktop. This inherent device friction is a major reason why high total traffic (driven by mobile expansion) does not yield proportional orders.
+Insight 2 — Dual failure of the desktop_targeted campaign on `/lander-2`
 
-Main insight 2: High Intent of Repeat Customers on Desktop. The strongest performance in the entire funnel was seen among repeat customers on desktop at /home, with a 70.12% CTR. This confirms that the "Home -> Product" transition is nearly seamless for loyal users, whereas "cold" traffic from new campaigns is where the majority of the 200,000+ exits occur.
+During Q4 2014, the desktop_targeted campaign was routed to `/lander-2`, producing a sustained and severe performance decline. In October 2014, `/lander-2` processed 5,795 sessions with 3,079 users advancing (CTR 53.1%). By December 2014, as desktop_targeted traffic came to dominate the page's session mix, total sessions collapsed to 1,647 — with only 490 users proceeding (CTR 29.7%). This represents a net loss of approximately 2,589 users advancing per month compared to October, despite the page itself remaining unchanged. The campaign failed both in audience selection and message-to-page alignment.
 
-Main insight 3: Optimization Gap for Mobile-Targeted Landers. While /lander-5 maximized desktop performance, the lack of an equivalent mobile-optimized version for these new campaigns forced mobile traffic into lower-performing funnels (like the pilot on /lander-3), further exacerbating the drop-off at Point 1.
-**Bottleneck 2 — Detail View → Add-to-Cart (~55% drop-off):**
+**2. By campaign**
+
+Insight 1 — The cost of broad targeting without quality filters
+
+The Pilot campaign demonstrates a recurring pattern: rapid traffic volume expansion without corresponding purchase intent. When broad-targeted traffic is directed to a landing page, the dilution effect on CTR is immediate and measurable. In the case of `/lander-3`, injecting approximately 1,450 – 2,011 low-intent sessions per month (Pilot CTR: ~10–11%) into a page previously converting at 53% reduced the blended CTR by 15–18 percentage points — directly explaining the gap between rising session counts and stagnant order volumes.
+
+Insight 2 — Audience-page mismatch in the desktop_targeted campaign
+
+The desktop_targeted campaign was designed to optimize conversion among desktop users, yet delivered traffic with below-average purchase intent. The 23.4 percentage point CTR decline on `/lander-2` between October and December 2014 (53.1% → 29.7%) constitutes the strongest evidence of systematic targeting misalignment in the dataset. Whether the root cause lies in ad creative, audience definition, or bid strategy cannot be determined from session data alone, but the outcome — a page that previously converted more than half its visitors now converting fewer than one in three — warrants a formal post-mortem on campaign configuration.
+
+**3. By device type**
+
+Insight 1 — Mobile consistently underperforms desktop across all landing pages
+
+Device-level analysis confirms that mobile sessions record materially lower CTR than desktop sessions across all landing page variants and time periods. The Pilot campaign, which disproportionately targeted mobile users via socialbook, compounded this structural disadvantage by routing low-intent mobile traffic to `/lander-3` — a page not optimized for mobile viewing. The combination of device-inherent friction and campaign-driven traffic dilution produced the most severe CTR readings in the dataset (35.0% in February 2014).
+
+Insight 2 — Desktop performance is vulnerable to campaign misalignment
+
+Despite desktop's structural conversion advantage, poor campaign targeting can neutralize it entirely. The desktop_targeted campaign on `/lander-2` reduced CTR to 29.7% in December 2014 — below the mobile average for most periods — demonstrating that device type alone does not determine conversion quality when incoming traffic intent is misaligned with page content.
+
+|<img width="1032" height="525" alt="image" src="https://github.com/user-attachments/assets/47f93bb0-b6ef-45f7-ac0d-52c1890f74dc" />|
+|:----------------:|
+|**Figure 3:** Landing page Click-through-rate Overtime|
+
+|<img width="1035" height="524" alt="image" src="https://github.com/user-attachments/assets/b053a6b2-3a1b-4b69-bfce-9437451ed8e1" />|
+|:----------------:|
+|**Figure 4:** Monthly Traffic Volume by Landing page|
+
+## **Bottleneck 2 — Detail View → Add-to-Cart (~55% drop-off):**
 
 This is the most significant active bottleneck. Average time on the product detail page is approximately 2 minutes — indicating user engagement rather than UI friction. The high exit rate therefore points to product-side barriers: insufficient product description quality, non-compelling imagery, or a pricing mismatch relative to willingness-to-pay. This is the highest-priority optimization target.
 
-<img width="1186" height="690" alt="1a110e4e-6547-49cf-adc4-aa826a199ffe" src="https://github.com/user-attachments/assets/a5708691-a296-4635-bdbb-b6c9f30a2d1a" />
+|<img width="1186" height="690" alt="image" src="https://github.com/user-attachments/assets/e005ec95-6531-4caf-a1f6-b30636b18736" />|
+|:----------------:|
+|**Figure 5:** Product Detail to Add-to-Cart Conversion Rate by Product|
 
-**Figure 3:** Product Detail to Cart Conversion Rate by Product
-
-**Bottleneck 3 — Billing Drop-off (37.9%):**
+## **Bottleneck 3 — Billing Drop-off (37.9%):**
 
 Elevated, but within the accepted e-commerce benchmark range of ~60–80% ([source](https://baymard.com/lists/cart-abandonment-rate)). Average time at this stage (~3.25 minutes) suggests checkout form complexity as a contributing factor. Given benchmark alignment, this is a lower priority relative to Bottleneck 2.
 
@@ -123,20 +155,17 @@ Specific observation that is related to a recommended action. Recommendation or 
 
 Throughout the analysis, multiple assumptions were made to manage challenges with the data. These assumptions and caveats are noted below:
 
-**1. Partial months excluded from YoY trend analysis:**
-The dataset begins on March 19, 2012 and ends on March 19, 2015. Both March periods contain only 13–19 days of data. Including these months in YoY comparisons would overstate 2013 growth by approximately 2x due to unequal day counts in the baseline. All trend analysis uses April 2012 as the start point for YoY calculations. For March 2015 performance, a Month-to-Date (MTD) comparison using the same 19-day window from 2014 is used instead of full-month extrapolation.
-
-**2. Null UTM campaign handling:**
+**1. Null UTM campaign handling:**
 
 For records in website_sessions where utm_campaign is missing (null), traffic is categorized using the following logic:
 
 - ***Direct Traffic:*** Sessions where both utm_source and http_referer are null — users accessing via direct URL or bookmarks.
 - ***Organic Search:*** Sessions where utm_source is null but http_referer contains search engine strings — unpaid search discovery.
 
-**3. Bounce rate benchmarks sourced from Shopify industry data:**
+**2. Bounce rate benchmarks sourced from Shopify industry data:**
 
 The e-commerce bounce rate benchmark range of 36–45% referenced in Category 2 is based on published Shopify industry averages for retail and gifting categories. This benchmark should be periodically refreshed as market conditions evolve.
 
-**4. March 2015 YoY decline is a data artifact, not a business signal:**
+**3. March 2015 YoY decline is a data artifact, not a business signal:**
 
-The apparent -3.7% YoY session decline in March 2015 is caused by the dataset ending on March 19 — creating an incomplete month compared to a full March 2014. This should not be reported as a performance decline without the MTD context provided in Category 1.
+The apparent -3.7% YoY session decline in March 2015 is caused by the dataset ending on March 19 — creating an incomplete month compared to a full March 2014. Therefore, this should not be reported as a performance decline.
