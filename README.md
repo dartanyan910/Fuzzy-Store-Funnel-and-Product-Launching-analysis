@@ -109,41 +109,24 @@ These findings effectively reject the hypothesis of a landing page design flaw, 
 
 ***Traffic Source***
 
-**Main insight 1:** Continuous A/B testing on desktop landing pages systematically eliminated the acquisition bottleneck.
+**Main finding 1:** Rigorous A/B testing eventually yielded a winning landing page (/lander-5), overcoming prolonged periods of underperforming variants.
 
-Historical data reveals a deliberate and highly successful testing roadmap for nonbrand (new acquisition) desktop traffic. Originally routed to /home in early 2012, this traffic yielded a poor 44% click-through rate. The introduction of /lander-1 (mid-2012) improved this to ~51%, followed by /lander-2 (2013) pushing it to ~58%. By late 2014, the deployment of /lander-5 achieved a plateau of 64% - 65%. This 20-point absolute increase proves that the top-of-funnel friction for desktop users has been completely resolved through UI/UX iteration.
+Historical data reveals a challenging but successful optimization journey for new acquisition desktop traffic. From mid-2012 to mid-2014, significant volume was routed to experimental variants (`/lander-1`, `/lander-2`, and `/lander-4`) that consistently underperformed the original `/home` page's strong baseline of 60%–66% CTR. These early variants languished in the 45%–55% range, dragging down the overall monthly averages due to traffic misallocation. However, the breakthrough occurred in August 2014 with the deployment of `/lander-5`. This variant immediately achieved a 62.1% CTR, matching the `/home` baseline. By heavily shifting volume to `/lander-5` in late 2014, the overall desktop acquisition CTR recovered and stabilized above 60% into early 2015.
 
-**Main insight 2:** Mobile-specific landing page routing salvaged mobile performance, though a 10% gap remains.
+**Main finding 2: Audience intent dictates the conversion ceiling, validating the platform's split-routing architecture.**
 
-Prior to mid-2013, mobile nonbrand traffic was severely underperforming, languishing at a 28% - 33% click-through rate across /home and /lander-1. The introduction of /lander-3, a dedicated mobile landing page, immediately corrected this trajectory, stabilizing mobile CVR at 52% - 54% through early 2015. While this represents a massive operational win, mobile performance still trails the desktop /lander-5 benchmark by approximately 10-12%, indicating the need for a final round of mobile viewport optimization.
+While A/B testing optimized the journey for first-time visitors, data shows that user intent (Trust/Brand familiarity) is the ultimate driver of conversion. Across all timeframes and devices, Repeat and Brand-search cohorts consistently outperform New Nonbrand segments by a 10% to 15% margin. The company's routing architecture capitalizes on this perfectly: optimized `/lander-x` pages do the heavy lifting of converting cold traffic, while the legacy `/home` page is reserved for high-intent (Direct, Brand, and Returning) users. Operating as a pure navigation hub for loyal customers, the `/home` page effortlessly sustains an elite 68%–75% conversion rate. The remaining top-funnel drop-offs are no longer a UX bottleneck, but rather the natural friction of acquiring first-time buyers.
 
-**Main insight 3:** Strategic traffic routing correctly isolates high-intent cohorts to the legacy homepage.
+**Main finding 3:** Mobile-specific landing page routing salvaged mobile performance, though a 10% gap remains.
 
-The data confirms a sophisticated routing architecture: all newly acquired nonbrand traffic is directed to optimized /lander-x pages, while the original /home page is reserved exclusively for direct, brand, and returning traffic. Because this audience already possesses high intent and brand familiarity, the /home page effortlessly maintains an elite 68% - 75% conversion rate on desktop. The /home page is not a bottleneck; it is functioning perfectly as a navigation hub for loyal customers.
+Prior to mid-2013, mobile nonbrand traffic was severely underperforming, languishing at a 28% - 33% click-through rate (CTR) across /home and /lander-1. The introduction of /lander-3, a dedicated mobile landing page, immediately corrected this trajectory, stabilizing mobile CTR at 52% - 54% through early 2015. While this represents a massive operational win, mobile performance still trails the desktop /lander-5 benchmark by approximately 10-12%, indicating the need for a final round of mobile viewport optimization.
 
-**Main insight 4:** Customer trust (Repeat vs. New) dictates the ultimate conversion ceiling, overriding device and channel constraints.
-
-Across all timeframes and devices, Repeat Customer segments consistently outperform New Customer segments within the exact same traffic sources. For example, in early 2015, repeat direct desktop users converted at ~71%, while new direct desktop users converted at ~60%. This persistent 10% to 15% margin isolates the final variable: intent. The remaining drop-offs at the top of the funnel are no longer caused by broken page designs, but rather the natural friction of convincing a first-time visitor to browse products.
-
-|<img width="1032" height="525" alt="image" src="https://github.com/user-attachments/assets/47f93bb0-b6ef-45f7-ac0d-52c1890f74dc" />|
-|:----------------:|
-|**Figure 3:** Landing page Click-through-rate Overtime|
-
-|<img width="1035" height="524" alt="image" src="https://github.com/user-attachments/assets/b053a6b2-3a1b-4b69-bfce-9437451ed8e1" />|
-|:----------------:|
-|**Figure 4:** Monthly Traffic Volume by Landing page|
-
-|<img width="1182" height="590" alt="image" src="https://github.com/user-attachments/assets/4577a769-073d-4d6d-99bd-1a47006b8f4f" />|
+|<img width="1033" height="518" alt="image" src="https://github.com/user-attachments/assets/305f02de-312d-4c8e-a678-8de09d92e5d5" />|
 |:----------------:|
 |**Figure 5:** Click-through rate Trend by device|
 
-|<img width="1184" height="590" alt="image" src="https://github.com/user-attachments/assets/7ab0a79b-ae51-42f8-a44b-58393356f42c" />|
-|:----------------:|
-|**Figure 5:** Traffic Volume Trend by device|
 
 ## **Bottleneck 2 — Detail View → Add-to-Cart (~55% drop-off):**
-
-This is the most significant active bottleneck. 
 
 |<img width="1186" height="690" alt="image" src="https://github.com/user-attachments/assets/e005ec95-6531-4caf-a1f6-b30636b18736" />|
 |:----------------:|
@@ -153,17 +136,16 @@ This is the most significant active bottleneck.
 
 ***Key takeaway:*** The checkout flow is not the main problem. Overall, it performs better than the market benchmark, and the biggest drop-off happens earlier at the cart stage rather than during shipping or payment.
 
-- The overall cart abandonment rate is 65.97%, which is better than the global e-commerce benchmark of 69%–72% ([source](https://baymard.com/lists/cart-abandonment-rate)). This suggests that the bottom of the funnel is performing reasonably well, even though the total number of lost sessions is still large in absolute terms.
+**Main finding 1:** The overall cart abandonment rate is 65.97%, which is better than the global e-commerce benchmark of 69%–72% ([source](https://baymard.com/lists/cart-abandonment-rate)). This suggests that the bottom of the funnel is performing reasonably well, even though the total number of lost sessions is still large in absolute terms.
 
 Table 4: Total Session and Conversion Rate of each Stage in Check-out Funnel 
 |total cart sessions|	total shipping sessions|	cart to shipping cvr (%)|	total billing sessions|	shipping to billing cvr (%)| total success purchase|	billing to purchased cvr (%)|	cart abandonment rate (%)|
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |94,953|	64,484|	67.91|	52,058|	80.73|	32,313|	62.07|	65.97|
 
+**Main finding 2:** The “shipping cost shock” hypothesis is not supported by the data. Once users reach the /shipping page, 80.73% continue to /billing, which means shipping fees and delivery timelines are not the main reason customers leave.
 
-- The “shipping cost shock” hypothesis is not supported by the data. Once users reach the /shipping page, 80.73% continue to /billing, which means shipping fees and delivery timelines are not the main reason customers leave.
-
-- Payment is also not a major bottleneck. The /billing-2 → success conversion rate stays at 62.07%, showing that the payment step is working consistently well.
+**Main finding 3:** Payment is also not a major bottleneck. The /billing-2 → success conversion rate stays at 62.07%, showing that the payment step is working consistently well.
 
 Table 5: Billing landing page
 |Page URL| Period|Total Billing Session|Successful Purchase|Billing to Successful Purchase CVR (%)|
