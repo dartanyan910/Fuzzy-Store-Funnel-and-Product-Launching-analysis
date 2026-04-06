@@ -47,7 +47,7 @@ Between 2012 and 2015, the platform generated over 472,000 sessions with an over
 
 Table 1: Total Session through funnel
 
-|year|total_sessions|step_1_home|step_2_products|step_3_product_detail|step_4_cart|step_5_shipping|step_6_billing|step_7_ordered|
+|Year|Total Sessions|Step 1-Home|Step 2-products|Step 3-Product Detail|Step 4-Cart|Step 5-Shipping|Step 6-Billing|Step 7-Ordered|
 |-------|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |2012|	62470 |	62470  |29468	 |21252 |9235 |	6306 |	5166 |	2586 |
 |2013|	112781|	112781 |62491	 |47878	|21521|	14647|	11877|	7447 |
@@ -98,13 +98,13 @@ To better understand these bottlenecks and explain why high traffic volume does 
 
 |<img width="1186" height="690" alt="image" src="https://github.com/user-attachments/assets/e005ec95-6531-4caf-a1f6-b30636b18736" />|
 |:----------------:|
-|**Figure 5:** Product Detail to Add-to-Cart Conversion Rate by Product|
+|**Figure 6:** Product Detail to Add-to-Cart Conversion Rate by Product|
 
 - **Main finding 1:** The primary product, `/the-original-mr-fuzzy`, drives volume but represents the largest absolute drop-off. It accounts for 77.5% of product views but results in over 92,000 lost "Add-to-Cart" sessions due to its 43.04% CVR baseline. Newer products (`Love Bear` at 55.6% and `Mini Bear` at 65.1%) operate at higher conversion rates, but their overall impact is limited by lower traffic allocation.
 
 - **Main finding 2:** The drop-off rate is higher on mobile devices across all products. For `/the-original-mr-fuzzy`, mobile PDP-to-ATC conversion lags desktop by 3.8 percentage points (40.1% vs. 43.9%). This consistent underperformance across the portfolio indicates a mobile-specific UX issue.
 
-Table 4: Product Portfolio Conversion Performance (Aggregate 2012 - 2015)
+Table 2: Product Portfolio Conversion Performance (Aggregate 2012 - 2015)
 | Product Landing Page | Total Detail Views | Sessions Added to Cart | View-to-Cart CVR | View-to-Cart CVR (Mobile Only) |
 |:---|---:|---:|---:|---:|
 | `/the-original-mr-fuzzy` | 162,525 | 69,957 | 43.04% | 40.13% |
@@ -123,7 +123,7 @@ Table 4: Product Portfolio Conversion Performance (Aggregate 2012 - 2015)
 
 - **Main finding 1:** Overall cart abandonment of 65.97% falls below the global e-commerce benchmark of 69–72% ([source](https://baymard.com/lists/cart-abandonment-rate)). However, device-level breakdown reveals that desktop (63.00%) is driving this result, while mobile (77.23%) sits above benchmark — indicating the aggregate figure masks a structural mobile problem.
 
-Table 4: Total Session and Conversion Rate of each Stage in Check-out Funnel 
+Table 3: Total Session and Conversion Rate of each Stage in Check-out Funnel 
 |device|total cart sessions|	total shipping sessions|	cart to shipping cvr (%)|	total billing sessions|	shipping to billing cvr (%)| total success purchase|	billing to purchased cvr (%)|	cart abandonment rate (%)|
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 mobile |	19798|	11792|	59.56|	8336 |	70.69|	4508 |	54.08|	77.23|
@@ -133,7 +133,7 @@ desktop|	75155|	52692|	70.11|	43722|	82.98|	27805|	63.59|	63.00|
 
 - Main finding 3: Payment friction was resolved through A/B testing. /billing-2 lifted billing-to-purchase CVR from 44.79% to 63.36% on desktop and from 34.55% to 55.09% on mobile — a sustained improvement that has held since September 2012.
   
-Table 5: Billing Landing Page Performance
+Table 4: Billing Landing Page Performance
 |Device|Page URL| Period|Total Billing Session|Successful Purchase|Billing to Successful Purchase CVR (%)|
 |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|
 |desktop|/billing  |	3206	|1478|	46.10|
