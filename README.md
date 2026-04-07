@@ -160,7 +160,5 @@ Based on the insights and findings above, we would recommend the stakeholder to 
 |Priority| Observation| Recommendation| Success Metric
 |:----:|----|----|----|
 |P1|Mobile traffic consistently underperforms, trailing desktop by ~10% at acquisition and suffering a 77.2% cart abandonment rate.|Conduct a full Mobile UX Audit. Prioritize streamlining the mobile cart interface and top-funnel landing pages to eliminate device-specific friction.|Decrease mobile Cart Abandonment rate from 77.2% to <70%. Increase mobile Top-Funnel CTR to >58%.
-
 |P2|Over 92,000 sessions (56.9%) bounce directly from the flagship Mr. Fuzzy product page with exactly 0% navigating to alternative SKUs, despite newer products converting at much higher rates (55-65%).|Launch a Mid-Funnel Cross-sell A/B Test. Implement a "You May Also Like" product carousel on the Mr. Fuzzy page to route bouncing users to high-CVR products.|+5% increase in secondary SKU Detail Views. +2% uplift in overall Mid-Funnel (View-to-Cart) CVR.|
-
 |P3|`/lander-5` matches `/home` on CTR for new desktop customers while generating the lowest historical refund rate.|Establish `/lander-5` as the strict Desktop Control Baseline. Route all new desktop nonbrand traffic here for optimized acquisition quality.|Maintain Desktop Top-Funnel CTR >62%. Maintain product refund rate <4.5%.|
