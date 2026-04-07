@@ -40,21 +40,6 @@ The companies main database structure as seen below consists of six tables: `ord
 |:-----------:|
 |**Figure 1:** Entities Relationship Diagram|
 
-# Assumptions and Caveats:
-
-Throughout the analysis, multiple assumptions were made to manage challenges with the data. These assumptions and caveats are noted below:
-
-**1. Null UTM campaign handling:**
-
-For records in website_sessions where utm_campaign is missing (null), traffic is categorized using the following logic:
-
-- ***Direct Traffic:*** Sessions where both utm_source and http_referer are null — users accessing via direct URL or bookmarks.
-- ***Organic Search:*** Sessions where utm_source is null but http_referer contains search engine strings — unpaid search discovery.
-
-**2. March 2015 YoY decline is a data artifact, not a business signal:**
-
-The apparent decline in March 2015 is caused by the dataset ending on March 19 — creating an incomplete month compared to a full March 2014. Therefore, this should not be reported as a performance decline.
-
 # Executive Summary
 Between March 2012 and March 2015, Fuzzy Factory recorded 472,871 sessions but converted only 6.8% into orders — a gap driven by two structural problems, not traffic volume.
 First, mobile underperforms at every funnel stage: a 10–12 point CTR deficit at acquisition and a 77.2% cart abandonment rate, well above the 69–72% global benchmark. Second, the flagship Mr. Fuzzy product absorbs 77.5% of product traffic but converts at only 43% — and of the 92,568 sessions that don't add it to cart, exactly 0% navigate to an alternative. Higher-converting products exist (Love Bear 55.6%, Mini Bear 65.1%) but are structurally invisible to hesitant buyers.
@@ -84,7 +69,7 @@ To better understand these bottlenecks and explain why high traffic volume does 
 
 # Insight Deep Dive
 
-### **Stage 1:** Top-Funnel Diagnostics (Home/Landing → Product)
+### **Bottleneck 1:** Top-Funnel Diagnostics (Home/Landing → Product)
 
 ***Key takeaway:*** The 200,000+ session drop-off at the top of the funnel is primarily a filtering of low-intent traffic. Continuous A/B testing and split-routing have optimized this stage close to its ceiling, with the exception of a gap on mobile devices.
 
@@ -106,13 +91,11 @@ To better understand these bottlenecks and explain why high traffic volume does 
 |:----------------:|
 |**Figure 5:** Click-through rate Trend by device|
 
-## **Stage 2:** Mid-Funnel Diagnostics (Detail View → Add-to-Cart)
+## **Bottleneck 2:** Mid-Funnel Diagnostics (Detail View → Add-to-Cart)
 
 ***Key takeaway:*** The 55% mid-funnel drop-off is concentrated on a single product. Mr. Fuzzy accounts for 77.5% of product views but converts at 43.04% — the lowest in the portfolio. Higher-converting alternatives exist (Love Bear 55.6%, Mini Bear 65.1%) but receive less than 15% of total traffic, and the current page architecture offers no pathway between them: 100% of the 92,568 sessions that do not convert on Mr. Fuzzy exit the site entirely.
 
 - **Main finding 1:** The primary product, `/the-original-mr-fuzzy`, drives volume but represents the largest absolute drop-off. It accounts for 77.5% of product views but results in over 92,000 lost "Add-to-Cart" sessions due to its 43.04% CVR baseline. Newer products (`Love Bear` at 55.6% and `Mini Bear` at 65.1%) operate at higher conversion rates, but their overall impact is limited by lower traffic allocation.
-
-- **Main finding 2:** Alternative products show stronger product-market fit but lack visibility. Newer SKUs (Love Bear at 55.6% and Mini Bear at 65.1%) demonstrate significantly higher conversion rates. However, their business impact is severely limited because they receive less than 15% of total product traffic.
 
 Table 2: Product Portfolio Conversion Performance (Aggregate 2012 - 2015)
 | Product Landing Page | Total Detail Views | Sessions Added to Cart | View-to-Cart CVR (Desktop Only) | View-to-Cart CVR (Mobile Only) |
@@ -122,7 +105,7 @@ Table 2: Product Portfolio Conversion Performance (Aggregate 2012 - 2015)
 | `/the-birthday-sugar-panda` | 19,046 | 8,811 | 46.26% | 41.50% |
 | `/the-hudson-river-mini-bear` | 2,610 | 1,700 | 65.13% | 60.30% |
 
-- **Main finding 3:** The Product Detail Page lacks horizontal navigation, acting as a strict dead-end for hesitant buyers. While the platform successfully generates cross-sales when products are bundled in the cart, users who reject the primary product have no alternative pathways. Behavioral flow analysis reveals that out of the 92,568 sessions that do not add Mr.Fuzzy to their cart, exactly 0% navigate to view alternative products.
+- **Main finding 2:** The Product Detail Page lacks horizontal navigation, acting as a strict dead-end for hesitant buyers. While the platform successfully generates cross-sales when products are bundled in the cart, users who reject the primary product have no alternative pathways. Behavioral flow analysis reveals that out of the 92,568 sessions that do not add Mr.Fuzzy to their cart, exactly 0% navigate to view alternative products.
 
 Table 3: Next Action Distribution for Mr.Fuzzy
 |Next Action	|Total Sessions	|Contribute to Fuzzy traffic (%)|
@@ -147,7 +130,7 @@ desktop|	75155|	52692|	70.11|	43722|	82.98|	27805|	63.59|	63.00|
 - Main finding 3: Payment friction was resolved through A/B testing. /billing-2 lifted billing-to-purchase CVR from 44.79% to 63.36% on desktop and from 34.55% to 55.09% on mobile — a sustained improvement that has held since September 2012.
   
 Table 5: Billing Landing Page Performance
-|Device|Page URL| Period|Total Billing Session|Successful Purchase|
+|Device|Page URL|Total Billing Session|Successful Purchase|CVR (%)|
 |:-----|:-----:|:-----:|:-----:|:-----:|
 |desktop|/billing  |	3206	|1478|	46.10|
 |desktop|/billing-2|	40516|	26327|	64.98|
@@ -157,8 +140,23 @@ Table 5: Billing Landing Page Performance
 # Recommendations:
 Based on the insights and findings above, we would recommend the stakeholder to consider the following:
 
-|Priority| Observation| Recommendation| Success Metric
+|Priority| Observation| Recommendation| Success Metric|
 |:----:|----|----|----|
 |P1|Mobile traffic consistently underperforms, trailing desktop by ~10% at acquisition and suffering a 77.2% cart abandonment rate.|Conduct a full Mobile UX Audit. Prioritize streamlining the mobile cart interface and top-funnel landing pages to eliminate device-specific friction.|Decrease mobile Cart Abandonment rate from 77.2% to <70%. Increase mobile Top-Funnel CTR to >58%.
 |P2|Over 92,000 sessions (56.9%) bounce directly from the flagship Mr. Fuzzy product page with exactly 0% navigating to alternative SKUs, despite newer products converting at much higher rates (55-65%).|Launch a Mid-Funnel Cross-sell A/B Test. Implement a "You May Also Like" product carousel on the Mr. Fuzzy page to route bouncing users to high-CVR products.|+5% increase in secondary SKU Detail Views. +2% uplift in overall Mid-Funnel (View-to-Cart) CVR.|
 |P3|`/lander-5` matches `/home` on CTR for new desktop customers while generating the lowest historical refund rate.|Establish `/lander-5` as the strict Desktop Control Baseline. Route all new desktop nonbrand traffic here for optimized acquisition quality.|Maintain Desktop Top-Funnel CTR >62%. Maintain product refund rate <4.5%.|
+
+# Assumptions and Caveats:
+
+Throughout the analysis, multiple assumptions were made to manage challenges with the data. These assumptions and caveats are noted below:
+
+**1. Null UTM campaign handling:**
+
+For records in website_sessions where utm_campaign is missing (null), traffic is categorized using the following logic:
+
+- ***Direct Traffic:*** Sessions where both utm_source and http_referer are null — users accessing via direct URL or bookmarks.
+- ***Organic Search:*** Sessions where utm_source is null but http_referer contains search engine strings — unpaid search discovery.
+
+**2. March 2015 YoY decline is a data artifact, not a business signal:**
+
+The apparent decline in March 2015 is caused by the dataset ending on March 19 — creating an incomplete month compared to a full March 2014. Therefore, this should not be reported as a performance decline.
