@@ -16,11 +16,10 @@ Insights and recommendations are provided on the following stakeholder questions
 
 `Why does high traffic volume not translate into proportional order volume — what is actually optimized, and where is the funnel still leaking?`
 
-The Python codes used to inspect and clean the data for this analysis can be found [here]().
+The Python codes used to inspect and clean the data for this analysis can be found [here](https://github.com/dartanyan910/Fuzzy-Store-Funnel-Analysis/blob/1f4ace8edf224e5b5ee4ed901c394615390e4771/e-commerce.ipynb).
 
 Targeted SQL queries regarding various business questions can be found [here](https://github.com/dartanyan910/Fuzzy-Store-Funnel-and-Product-Launching-analysis/blob/main/SQL.sql).
 
-An interactive Tableau dashboard used to report and explore sales trends can be found here [link].
 # Data Structure & Initial Checks
 The companies main database structure as seen below consists of six tables: `orders`, `order_items`, `order_item_refunds`, `products`, `website_sessions`, `session_pageviews` with more than 1 million records. A description of each table is as follows:
 
