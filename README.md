@@ -127,16 +127,16 @@ mobile |	19798|	11792|	59.56|	8336 |	70.69|	4508 |	54.08|	77.23|
 desktop|	75155|	52692|	70.11|	43722|	82.98|	27805|	63.59|	63.00|
 
 - **Main finding 3:** The /billing-2 iteration successfully mitigated general payment friction but failed to close the mobile performance gap.
-Historical data (Figure 6) indicates that the original /billing page underperformed, converting only ~40-50% of traffic to successful purchases. To address this bottleneck, /billing-2 was launched in September 2012. A statistical evaluation of the A/B testing period (Sept 2012 - Jan 2013) confirmed that /billing-2 delivered a statistically significant lift of 14.32% in conversion rate compared to the control group. This validates that the redesigned payment interface effectively removed critical checkout friction. However, despite this overall optimization, the mobile penalty persists. As shown in Figure 7, mobile conversion on /billing-2 still trails desktop by approximately 10 percentage points, reaffirming that the core issue lies in mobile-specific UX constraints rather than the payment logic itself.
-
+Historical data (Figure 6) indicates that the original /billing page underperformed, converting only ~40-50% of traffic to successful purchases. To address this bottleneck, /billing-2 was launched in September 2012. A statistical evaluation of the A/B testing period (Sept 2012 - Jan 2013) confirmed that /billing-2 delivered a statistically significant lift of 14.32% in conversion rate compared to the control group. This validates that the redesigned payment interface effectively removed critical checkout friction.
 |<img width="1189" height="589" alt="041714fa-dbd4-4039-be72-766d5383cbba" src="https://github.com/user-attachments/assets/5466b34c-b1f4-4c18-b44f-b587cc8cc782" />|
 |:----:|
 |**Figure 6:** Monthly Billing Conversion Rate (CVR): /billing vs /billing-2|
 
+However, despite this overall optimization, the mobile penalty persists. As shown in Figure 7, mobile conversion on /billing-2 still trails desktop by approximately 10 percentage points, reaffirming that the core issue lies in mobile-specific UX constraints rather than the payment logic itself.
 
-
-<img width="1188" height="589" alt="df6d3ca7-2adb-43f4-bc1d-712853ada296" src="https://github.com/user-attachments/assets/7566f023-d009-43aa-ba1d-c4834f603e04" />
-Monthly Billing CVR by Device Type (Post-Jan 2013)
+|<img width="1188" height="589" alt="df6d3ca7-2adb-43f4-bc1d-712853ada296" src="https://github.com/user-attachments/assets/7566f023-d009-43aa-ba1d-c4834f603e04" />|
+|:----:|
+|Monthly Billing CVR by Device Type (Post-Jan 2013|
 
 # Recommendations:
 Based on the insights and findings above, we would recommend the stakeholder to consider the following:
