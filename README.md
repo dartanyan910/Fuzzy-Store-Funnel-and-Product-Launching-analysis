@@ -20,6 +20,8 @@ The Python codes used to inspect and clean the data for this analysis can be fou
 
 Targeted SQL queries regarding various business questions can be found [here](https://github.com/dartanyan910/Fuzzy-Store-Funnel-and-Product-Launching-analysis/blob/main/SQL.sql).
 
+The PowerBI dashboard used to monitoring key metric, funnel traffic, and health can be found [hear](https://github.com/dartanyan910/Mven-Fuzzy-Factory-Funnel-Analysis/tree/cf27ae4df716c83d998a1e398e28497fde623c1e/dashboard)
+
 # Data Structure & Initial Checks
 The companies main database structure as seen below consists of six tables: `orders`, `order_items`, `order_item_refunds`, `products`, `website_sessions`, `session_pageviews` with more than 1 million records. A description of each table is as follows:
 
