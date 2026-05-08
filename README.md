@@ -130,6 +130,7 @@ desktop|	75155|	52692|	70.11|	43722|	82.98|	27805|	63.59|	63.00|
 
 - **Main finding 3:** The /billing-2 iteration successfully mitigated general payment friction but failed to close the mobile performance gap.
 Historical data (Figure 6) indicates that the original /billing page underperformed, converting only ~40-50% of traffic to successful purchases. To address this bottleneck, /billing-2 was launched in September 2012. A statistical evaluation of the A/B testing period (Sept 2012 - Jan 2013) confirmed that /billing-2 delivered a statistically significant lift of 14.32% in conversion rate compared to the control group. This validates that the redesigned payment interface effectively removed critical checkout friction.
+
 |<img width="1189" height="589" alt="041714fa-dbd4-4039-be72-766d5383cbba" src="https://github.com/user-attachments/assets/5466b34c-b1f4-4c18-b44f-b587cc8cc782" />|
 |:----:|
 |**Figure 6:** Monthly Billing Conversion Rate (CVR): /billing vs /billing-2|
